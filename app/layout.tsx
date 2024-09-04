@@ -1,15 +1,17 @@
-"use client"
+"use client";
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import ToastProvider from '@/components/providers/toaster-provider';
-import { ConvexClientProvider } from '@/components/providers/convex-provider';
+
 import { Toaster } from 'sonner';
-import { ConvexReactClient } from "convex/react";
+
 import { env } from 'process';
 
+import { ClerkProvider } from "@clerk/clerk-react";
+import { ruRU } from "@clerk/localizations";
 
-const convex = new ConvexReactClient("https://healthy-gull-205.convex.cloud");
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -27,7 +29,10 @@ export default function RootLayout({
 
   return (
     
-    <ConvexClientProvider>
+    <ClerkProvider
+    localization={ruRU}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+    >
       <html lang="ru">
         <body className={inter.className}>
 
@@ -38,6 +43,6 @@ export default function RootLayout({
         </body>
         
       </html>
-      </ConvexClientProvider>
+      </ClerkProvider>
   );
 }
