@@ -14,12 +14,6 @@ import { ruRU } from "@clerk/localizations";
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'ИОР Аловт',
-  description: 'Информационно-образовательный ресурс',
-};
-
-
 export default function RootLayout({
   children,
 }: {
