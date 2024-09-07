@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const data = await resend.emails.send({
       from: 'lms_alovt <onboarding@resend.dev>',
-      to: ['karshankov.dev@gmail.com'],
+      to: ['kragelyha@gmail.com'],
       subject: 'File',
       text: 'Новый файл!',
       react: EmailTemplate({ username, }),
